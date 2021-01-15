@@ -1,9 +1,14 @@
 package krasnikov.project.textapp
 
+import android.graphics.Color
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.text.style.UnderlineSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import krasnikov.project.textapp.databinding.RecyclerItemPersonBinding
+import kotlin.random.Random
 
 class PersonAdapter(private val items: MutableList<Person>) :
     RecyclerView.Adapter<PersonAdapter.PersonViewHolder>() {
@@ -32,7 +37,29 @@ class PersonAdapter(private val items: MutableList<Person>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(person: Person) {
-            binding.tvName.text = "${person.firstName} ${person.lastName}"
+            val spannable = SpannableStringBuilder("${person.firstName} ${person.lastName}")
+
+            spannable.setSpan(
+                ForegroundColorSpan(
+                    Color.argb(
+                        255,
+                        Random.nextInt(256),
+                        Random.nextInt(256),
+                        Random.nextInt(256)
+                    )
+                ),
+                spannable.length - person.lastName.length,
+                spannable.length,
+                0
+            )
+            spannable.setSpan(
+                UnderlineSpan(),
+                spannable.length - person.lastName.length,
+                spannable.length,
+                0
+            )
+
+            binding.tvName.text = spannable
         }
     }
 }

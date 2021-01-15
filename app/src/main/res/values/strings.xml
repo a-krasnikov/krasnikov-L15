@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">TextApp</string>
     <string name="btn_add">Add</string>
+    <string name="hint_first_name">First name</string>
+    <string name="hint_last_name">Last name</string>
+
+    <string name="error_input_first_name">Your first name can\'t contain numbers or special characters, must have 4 characters or more and the first character must be uppercase.</string>
+    <string name="error_input_last_name">Your last name can\'t contain numbers or special characters, must have 4 characters or more and the first character must be uppercase.</string>
+    <string name="error_add_person">The person can\'t be added to the list. Check the entered data.</string>
+    <string name="msg_add_person">Person(%1$s,%2$s) has been added to the list.</string>
 </resources>
